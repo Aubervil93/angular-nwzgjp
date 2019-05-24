@@ -1,0 +1,33 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+<ng-template #empty><h2>No races.</h2></ng-template>
+<div *ngIf="races.length > 0; else empty"><h2>Races</h2></div>
+
+
+<ul>
+  <li *ngFor="let race of races; index as i">index {{ i }} - {{ race.name }}</li>
+</ul>
+
+<ul>
+  <li *ngFor="let race of races; even as i">even {{ i }} - {{ race.name }}</li>
+</ul>
+<ul>
+  <li *ngFor="let race of races; odd as i">odd {{ i }} - {{ race.name }}</li>
+</ul>
+<ul>
+  <li *ngFor="let race of races; last as i">last {{ i }} - {{ race.name }}</li>
+</ul>
+<ul>
+  <li *ngFor="let race of races; first as i">first {{ i }} - {{ race.name }}</li>
+</ul>
+
+<div [ngSwitch]="races.length">
+  <p *ngSwitchCase="0">You have no message</p>
+  <p *ngSwitchCase="1">You have a message</p>
+  <p *ngSwitchDefault>You have some messages</p>
+</div>
+
+<p [style.color]="foregroundColor">Friendship is Magic</p>
+<div [ngStyle]="{fontWeight: fontWeight, color: fontColor}">I've got style</div>
